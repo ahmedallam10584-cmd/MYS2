@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+/* شاشة اللودنج */
+#loader{
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #111, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* الصندوق */
+.loader-box{
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* اللوجو */
+.loader-box h1{
+    font-size: 80px;
+    letter-spacing: 10px;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* النص */
+.loader-box p{
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* الخط المتحرك */
+.line{
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+    margin: 30px auto 0;
+    animation: move 1.2s infinite;
+}
+
+/* أنيميشن */
+@keyframes glow{
+    from{ text-shadow: 0 0 5px #88ff00; }
+    to{ text-shadow: 0 0 25px lab(89.09% -74.43 84.82); }
+}
+
+@keyframes move{
+    from{ transform: translateX(-100px); }
+    to{ transform: translateX(100px); }
+}
+</style>
+
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+window.onload = function(){
+    setTimeout(()=>{
+        document.getElementById("loader").style.display = "none";
+    }, 2000); // 2 ثانية
+}
+</script>
+<body>
+  <div class="logo">
+    <span>M</span>
+    <span>Y</span>
+    <span>S</span>
+  </div>
+  <div>
+    <p class="school-name" align="center">Magdy Yacoub School</p>
+  </div>
+    <div class="school-link">
+    <a href="https://www.facebook.com/p/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D9%87-%D8%A7%D9%84%D8%B1%D8%B3%D9%85%D9%8A%D9%87-%D9%84%D9%85%D8%AF%D8%B1%D8%B3%D8%A9-%D8%AF%D9%85%D8%AC%D8%AF%D9%89-%D9%8A%D8%B9%D9%82%D9%88%D8%A8-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D9%87-%D8%A7%D9%84%D9%85%D8%B4%D8%AA%D8%B1%D9%83%D9%87-%D8%A8%D8%A7%D9%84%D8%B9%D8%A7%D8%B4%D8%B1-%D9%85%D9%86-%D8%B1%D9%85%D8%B6%D8%A7%D9%86-61551771576260/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="fb-icon">
+        صفحة مدرسة مجدي يعقوب
+    </a>
+    </div>
+    <h1 style="text-align:center; color:white;">اختار الفصل</h1>
+
+    <div class="grid-container">
+
+        <a class="box" href="class-1-1.html">
+          <div class="lock">🔒</div>
+          فصل 1/1
+        <a class="box" href="class-1-2.html">
+          <div class="lock">🔒</div>
+         فصل2/1
+       </a>
+        <a class="box" href="class-1-3.html">
+          <div class="lock">🔒</div>
+         فصل3/1
+       </a>
+
+        <a class="box" href="class-1-4.html">
+          <div class="lock">🔒</div>
+         فصل4/1
+       </a>
+        <a class="box" href="class-1-5.html">
+          <div class="lock">🔒</div>
+          فصل5/1
+       </a>
+        <a class="box" href="class-1-6.html">
+          <div class="lock">🔒</div>
+          فصل6/1
+       </a>
+
+        <a class="box" href="class-1-7.html">
+          <div class="lock">🔒</div>
+          فصل7/1
+       </a>
+
+        <a class="box" href="class-1-8.html">
+          <div class="lock">🔒</div>
+          فصل8/1
+       </a>
+
+        <a class="box" href="class-1-9.html">
+          <div class="lock">🔒</div>
+          فصل9/1
+       </a>
+
+
+    </div>
+    
+</body>
+<script>
+window.onload = function(){
+    setTimeout(()=>{
+        document.getElementById("loader").style.display = "none";
+    }, 1800); // مدة اللودنج
+}
+</script>
+<div id="loader">
+  <div class="loader-box">
+    <h1>SMY</h1>
+    <p>Magdi Yacoub School</p>
+    <div class="line"></div>
+  </div>
+</div>
+</html>

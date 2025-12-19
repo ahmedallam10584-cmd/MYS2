@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box ;
+    scroll-behavior: smooth;
+    font-family: "poppins" , "serif";
+
+}
+body {
+    
+    background-color: #222831;
+    
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 2rem auto;
+    padding: 0 0.5rem;
+    max-width: 1200px;
+}
+
+.navegation ul{
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+
+}
+.navegation a{
+    text-decoration: none;
+    color: #eeeeee;
+}
+.navegation ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.navegation li {
+    list-style: none;
+}
+
+.navegation a {
+    text-decoration: none;
+    color: #eeeeee;
+    font-size: 1.2rem;
+
+    background-color: #393E46;
+    width: 120px;       /* العرض */
+    height: 120px;      /* الطول نفس العرض = مربع */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 2px solid #eeeeee22;
+
+    padding: 0; /* مهم جداً عشان يفضل مربع */
+}
+
+
+.navegation a:hover {
+    background-color: #85b500;
+    color: #fff;
+    transform: scale(1.05);
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 مربعات في كل صف */
+    gap: 20px; /* المسافات بينهم */
+    max-width: 500px;
+    margin: 100px auto; /* يحطهم في نص الصفحة */
+}
+
+/* شكل المربعات */
+.grid-container a {
+    width: 150px;
+    height: 150px;
+    background-color: #f9fafc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+
+  
+.box:hover{
+    transform: rotate(360deg); 
+    transition: 2s;
+    background-color: #85b500;
+}
+.box {
+    position: relative; /* مهم علشان القفل يتظبط فوق المربع */
+}
+
+/* شكل القفل */
+.lock {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+}
+.status {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.logo-shield {
+    text-align: center;
+    }
+.school-name {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #efff11;
+    font-weight: bold;
+}
+.logo {
+    width: 140px;
+    height: 140px;
+    background: #040705; /* أخضر غامق */
+    border: 5px solid #ffc400; /* ذهبي */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffc506; /* الذهبي */
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(212,175,55,0.4);
+}
+.logo span {
+    display: inline-block;
+}
+.school-link {
+    text-align: right; /* يخليها على يمين الصفحة */
+    margin: 15px 20px; /* مسافة بسيطة من الحواف */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.school-link a {
+    text-decoration: none;
+    color: #c4cc96; /* أزرق هادي */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* المسافة بين أيقونة الفيسبوك والكلمة */
+}
+
+.school-link a:hover {
+    color: #c2ec27; /* لون فيسبوك عند المرور */
+}
+
+.fb-icon {
+    width: 24px; /* حجم أيقونة الفيسبوك */
+    height: 24px;
+}
+body {
+    background-image: url("img/تصميم\ بدون\ عنوان\ \(3\).jpg"); /* ضع رابط الصورة هنا */
+    background-size: cover;       /* تخلي الصورة تغطي الصفحة كلها */
+    background-repeat: no-repeat; /* تمنع تكرار الصورة */
+    background-position: center;  /* تخلي الصورة في منتصف الصفحة */
+    margin: 0;
+    padding: 0;
+}
+body.class1_1 {
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.clear-btn {
+    position: fixed;        /* يثبت في مكان محدد */
+    left: 20px;             /* يبعد عن الشمال */
+    top: 50%;               /* في منتصف الصفحة عموديًا */
+    transform: translateY(-50%); /* لضبط منتصف الزر بالضبط */
+    background-color: #ff4d4d; /* لون أحمر */
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;      /* حواف دائرية */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* ظل لطيف */
+    transition: 0.3s;
+    z-index: 1000;           /* فوق كل العناصر */
+}
+
+.clear-btn:hover {
+    background-color: #e60000; /* أحمر أغمق عند التحويم */
+    transform: translateY(-50%) scale(1.1); /* يكبر شويّة */
+}
+.clear-btn {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.clear-btn:hover {
+    background-color: #e60000;
+    transform: translateY(-50%) scale(1.1);
+}
