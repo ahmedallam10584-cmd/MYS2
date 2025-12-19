@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>مدرسة مجدي يعقوب - فصل 4/1</title>
+<style>
+    .absent {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        accent-color: rgb(252, 250, 250); /* يخلي لون المربع أحمر */
+    }
+    /* إخفاء علامة الصح الافتراضية */
+    .absent:checked {
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgb(247, 241, 241);
+        color: rgb(13, 20, 13);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 3px;
+    }
+    /* نضيف علامة X بعد الضغط */
+    .absent:checked::after {
+        content: "غ";
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        line-height: 20px;
+    }
+   </style>
+    <title>
+        مدرسه مجدي يعقوب فصل 4/1
+    </title>
+<style>
+    table {
+        font-size: 22px; /* كبّر أو صغّر الرقم */
+    }
+    </style>
+    <style>
+    table {
+        width: 30%; /* كبر العرض لحد ما يعجبك */
+    }
+    </style>
+    <style>
+    .fb-link {
+        position: absolute;
+        top: 50px;      /* نزّل الرابط لتحت شوية */
+        right: 20px;    /* يحطه على اليمين */
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+    .escape {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    /* إخفاء الشكل الأصلي للـ checkbox */
+    .escape:checked {
+        appearance: none;
+        -webkit-appearance: none;
+        background: rgb(253, 245, 231);
+        color: rgb(5, 3, 3);
+        font-weight: bold;
+        text-align: center;
+        border-radius: 3px;
+    }
+
+    /* بدل X هنحط O */
+    .escape:checked::after {
+        content: "ه";
+        display: block;
+        text-align: center;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .fb-link a {
+        text-decoration: none;
+        color: blue;
+    }
+    </style>
+<style>
+/* ====== الشكل العام ====== */
+body{
+    font-family: Arial;
+    text-align: center;
+    background-image: url("https://img.youm7.com/ArticleImgs/2019/3/16/47049-%D9%85%D8%AC%D8%AF%D9%89-%D9%8A%D8%B9%D9%82%D9%88%D8%A8.jpg");
+    background-size: cover;
+}
+
+
+
+/* ====== زر مسح الغياب ====== */
+.clear-btn{
+    position: fixed;
+    left:20px;
+    top:50%;
+    padding:10px 20px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ====== رسالة ====== */
+#msg{
+    background:rgb(0, 0, 0);
+    color:white;
+    padding:10px;
+    width:200px;
+    margin:10px auto;
+    display:none;
+}
+
+/* ====== فيسبوك ====== */
+.fb-link{
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+</style>
+</head>
+<body   align="center"  onload="checkPassword()" background="https://img.youm7.com/ArticleImgs/2019/3/16/47049-%D9%85%D8%AC%D8%AF%D9%89-%D9%8A%D8%B9%D9%82%D9%88%D8%A8.jpg">
+   <button class="clear-btn" onclick="clearAttendance()">مسح الغياب</button>
+   <div id="msg"></div>
+    
+    <script>
+    function checkPassword() {
+        const correctPassword = "1"; // ← هنا حط باسوورد الفصل
+        const userPassword = prompt("ادخل كلمة السر للدخول:");
+
+        if (userPassword === correctPassword) {
+            document.getElementById("content").style.display = "block";
+        } else {
+            alert("كلمة السر غلط!");
+            window.location.href = "https://google.com"; // يرجّعه برا
+        }
+    }
+    </script>
+    
+
+
+
+
+<div id="content">
+   
+
+    <!-- هنا جدول الغياب بتاعك -->
+   
+    </table>
+</div>
+
+
+
+    <script>
+    function resetAbsence() {
+        let now = new Date();
+
+        // لو الساعة 12 بالليل
+        if (now.getHours() === 0 && now.getMinutes() === 0) {
+            let checks = document.querySelectorAll(".absent");
+            checks.forEach(ch => ch.checked = false);
+        }
+    }
+
+    // تشغيل الفحص كل دقيقة
+    setInterval(resetAbsence, 60000);
+</script>
+    
+    
+    
+       
+    <table border="1" align="center">
+        <caption>
+            قائمة فصل 4/1
+        </caption>
+        <thead><tr   bgcolor="red">
+            <th>الرقم</th>
+            <th> الاسم
+            </th>
+            <th>الغياب
+            </th>
+            <th>هروب</th>
+            
+        </tr></thead>
+        <tbody   bgcolor="green" align="center">
+             <tr>
+            <td>1</td>
+            <td>
+             ابراهيم احمد علي 
+            </td>
+           <td><input type="checkbox" class="absent" id="a1"></td>
+           <td><input type="checkbox" class="escape" id="e1"></td>
+            
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+             ابراهيم صلاح
+            </td>
+            
+            <td><input type="checkbox" class="absent" id="a2"></td>
+            <td><input type="checkbox" class="escape" id="e2"></td>
+
+            
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+             احمد اشرف محمد
+            </td>
+            <td><input type="checkbox" class="absent" id="a3"></td>
+            <td><input type="checkbox" class="escape" id="e3"></td>
+        <tr>
+            <td>4</td>
+            <td>
+             احمد السيد مصطفي
+            </td>
+            <td><input type="checkbox" class="absent" id="a4"></td>
+            <td><input type="checkbox" class="escape" id="e4"></td>
+           
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>احمد حسن ابو بكر 
+            </td>
+            <td><input type="checkbox" class="absent" id="a5"></td>
+            <td><input type="checkbox" class="escape" id="e5"></td>
+           
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>احمد حمدي عطيه 
+            </td>
+            <td><input type="checkbox" class="absent" id="a6"></td>
+            <td><input type="checkbox" class="escape" id="e6"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>احمد سامح 
+            </td>
+            <td><input type="checkbox" class="absent" id="a7"></td>
+            <td><input type="checkbox" class="escape" id="e7"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>احمد سمير فتحي  
+            </td>
+            <td><input type="checkbox" class="absent" id="a8"></td>
+            <td><input type="checkbox" class="escape" id="e8"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>احمد طاهر زكي 
+            </td>
+            <td><input type="checkbox" class="absent" id="a9"></td>
+            <td><input type="checkbox" class="escape" id="e9"></td>
+           
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>احمد عادل جمال  
+            </td>
+            <td><input type="checkbox" class="absent" id="a10"></td>
+            <td><input type="checkbox" class="escape" id="e10"></td>
+           
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>احمد عبد السلام  
+            </td>
+            <td><input type="checkbox" class="absent" id="a11"></td>
+            <td><input type="checkbox" class="escape" id="e11"></td>
+
+           
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>احمد عبد الصادق 
+            </td>
+            <td><input type="checkbox" class="absent" id="a12"></td>
+            <td><input type="checkbox" class="escape" id="e12"></td>
+           
+        </tr>
+        <tr>   
+            <td>13</td> 
+            <td>احمد غريب  
+            </td>
+            <td><input type="checkbox" class="absent" id="a13"></td>
+            <td><input type="checkbox" class="escape" id="e13"></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>احمد مجدي 
+            </td>
+            <td><input type="checkbox" class="absent" id="a14"></td>
+            <td><input type="checkbox" class="escape" id="e14"></td>
+           
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>احمد محمد السعيد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a15"></td>
+            <td><input type="checkbox" class="escape" id="e15"></td>
+
+           
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>احمد محمد صالح 
+            </td>
+            <td><input type="checkbox" class="absent" id="a16"></td>
+            <td><input type="checkbox" class="escape" id="e16"></td>
+           
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>احمد محمد عاطف عبد الحميد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a17"></td>
+            <td><input type="checkbox" class="escape" id="e17"></td>
+
+           
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>احمد محمد عاطف محمد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a18"></td>
+            <td><input type="checkbox" class="escape" id="e18"></td>
+        
+
+           
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>احمد محمد عبدالله 
+            </td>
+            <td><input type="checkbox" class="absent" id="a19"></td>
+            <td><input type="checkbox" class="escape" id="e19"></td>
+
+
+           
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>احمد محمد فؤاد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a20"></td>
+            <td><input type="checkbox" class="escape" id="e20"></td>
+
+           
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>احمد محمد ناجي 
+            </td>
+            <td><input type="checkbox" class="absent" id="a21"></td>
+            <td><input type="checkbox" class="escape" id="e21"></td>
+           
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>احمد محمود احمد  
+            </td>
+            <td><input type="checkbox" class="absent" id="a22"></td>
+            <td><input type="checkbox" class="escape" id="e22"></td>
+
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>احمد محمود محمد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a23"></td>
+            <td><input type="checkbox" class="escape" id="e23"></td>
+
+           
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>احمد نادر كمال  
+            </td>
+            <td><input type="checkbox" class="absent" id="a24"></td>
+            <td><input type="checkbox" class="escape" id="e24"></td>
+
+           
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>احمد هشام زنهم  
+            </td>
+            <td><input type="checkbox" class="absent" id="a25"></td>
+            <td><input type="checkbox" class="escape" id="e25"></td>
+
+           
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>احمد هشام علي 
+            </td>
+            <td><input type="checkbox" class="absent" id="a26"></td>
+            <td><input type="checkbox" class="escape" id="e26"></td>
+
+
+           
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>احمد وائل عبد الغني  
+            </td>
+           <td><input type="checkbox" class="absent" id="a27"></td>
+           <td><input type="checkbox" class="escape" id="e27"></td>
+           
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>احمد ياسر صلاح 
+            </td>
+           <td><input type="checkbox" class="absent" id="a28"></td>
+           <td><input type="checkbox" class="escape" id="e28"></td>
+
+        </tr>
+        <tr>
+            <td>29</td>
+            <td>ادم احمد ابراهيم 
+            </td>
+           <td><input type="checkbox" class="absent" id="a29"></td>
+           <td><input type="checkbox" class="escape" id="e29"></td>
+
+           
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>ادم سامي محمد  
+            </td>
+            <td><input type="checkbox" class="absent" id="a30"></td>
+            <td><input type="checkbox" class="escape" id="e30"></td>
+           
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>ادهم ابراهيم محمد 
+            </td>
+            <td><input type="checkbox" class="absent" id="a31"></td>
+            <td><input type="checkbox" class="escape" id="e31"></td>
+
+           
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>ادهم احمد عبدالقادر 
+            </td>
+            <td><input type="checkbox" class="absent" id="a32"></td>
+            <td><input type="checkbox" class="escape" id="e32"></td>
+
+
+           
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>ادهم محمود علي  
+            </td>
+            <td><input type="checkbox" class="absent" id="a33"></td>
+            <td><input type="checkbox" class="escape" id="e33"></td>
+
+           
+        </tr>
+        <tr>
+            <td>34</td>
+            <td>اسامه سعيد عبدالله 
+            </td>
+            <td><input type="checkbox" class="absent" id="a34"></td>
+            <td><input type="checkbox" class="escape" id="e34"></td>
+           
+        </tr>
+        <tr>
+            <td>35</td>
+            <td>اسلام ماهر رمضان 
+            </td>
+            <td><input type="checkbox" class="absent" id="a35"></td>
+            <td><input type="checkbox" class="escape" id="e35"></td>
+
+
+           
+        </tr>
+        <tr>
+            <td>36</td>
+            <td>السيد رضا السيد 
+            </td>
+           <td><input type="checkbox" class="absent" id="a36"></td>
+           <td><input type="checkbox" class="escape" id="e36"></td>
+
+        </tr>
+        <tr>
+            <td>37</td>
+            <td>اياد محمود نصر 
+            </td>
+            <td><input type="checkbox" class="absent" id="a37"></td>
+            <td><input type="checkbox" class="escape" id="e37"></td>
+
+
+           
+        </tr>
+        <tr>
+            <td>38</td>
+            <td>عبدالرحمن خالد سمير 
+            </td>
+            <td><input type="checkbox" class="absent" id="a38"></td>
+            <td><input type="checkbox" class="escape" id="e38"></td>
+
+           
+        </tr>
+    </table>
+        </tbody>
+       
+   
+
+
+<script>
+/* حفظ */
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+    box.addEventListener("change",()=>{
+        localStorage.setItem(box.id, box.checked);
+    });
+});
+
+/* تحميل */
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+    const saved = localStorage.getItem(box.id);
+    if(saved === "true"){
+        box.checked = true;
+    }
+});
+</script>
+<script>
+// حفظ كل checkbox في localStorage تلقائي
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+    box.addEventListener("change",()=>{
+        localStorage.setItem(box.id, box.checked);
+    });
+});
+
+// تحميل القيم عند فتح الصفحة
+document.querySelectorAll("input[type=checkbox]").forEach(box=>{
+    const saved = localStorage.getItem(box.id);
+    if(saved === "true"){
+        box.checked = true;
+    }
+});
+
+// مسح الغياب
+function clearAttendance() {
+    if(confirm("هل أنت متأكد أنك تريد مسح الغياب؟")) {
+        document.querySelectorAll("input[type=checkbox]").forEach(box => {
+            box.checked = false;
+            localStorage.removeItem(box.id);
+        });
+
+        // اظهار الرسالة
+        const msgDiv = document.getElementById("msg");
+        msgDiv.innerText = "تم مسح الغياب ✅";
+        msgDiv.style.display = "block";
+
+        setTimeout(()=>{
+            msgDiv.style.display = "none";
+        },2000);
+    }
+}
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

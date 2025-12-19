@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>مدرسة مجدي يعقوب - فصل 4/1</title>
+    <style>
+        .absent {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: rgb(252, 250, 250);
+            /* يخلي لون المربع أحمر */
+        }
+
+        /* إخفاء علامة الصح الافتراضية */
+        .absent:checked {
+            appearance: none;
+            -webkit-appearance: none;
+            background: rgb(247, 241, 241);
+            color: rgb(13, 20, 13);
+            font-weight: bold;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        /* نضيف علامة X بعد الضغط */
+        .absent:checked::after {
+            content: "غ";
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            line-height: 20px;
+        }
+    </style>
+    <title>
+        مدرسه مجدي يعقوب فصل 4/1
+    </title>
+    <style>
+        table {
+            font-size: 22px;
+            /* كبّر أو صغّر الرقم */
+        }
+    </style>
+    <style>
+        table {
+            width: 30%;
+            /* كبر العرض لحد ما يعجبك */
+        }
+    </style>
+    <style>
+        .fb-link {
+            position: absolute;
+            top: 50px;
+            /* نزّل الرابط لتحت شوية */
+            right: 20px;
+            /* يحطه على اليمين */
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        .escape {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* إخفاء الشكل الأصلي للـ checkbox */
+        .escape:checked {
+            appearance: none;
+            -webkit-appearance: none;
+            background: rgb(253, 245, 231);
+            color: rgb(5, 3, 3);
+            font-weight: bold;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        /* بدل X هنحط O */
+        .escape:checked::after {
+            content: "ه";
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        .fb-link a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+    <style>
+        /* ====== الشكل العام ====== */
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-image: url("https://img.youm7.com/ArticleImgs/2019/3/16/47049-%D9%85%D8%AC%D8%AF%D9%89-%D9%8A%D8%B9%D9%82%D9%88%D8%A8.jpg");
+            background-size: cover;
+        }
+
+
+
+        /* ====== زر مسح الغياب ====== */
+        .clear-btn {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* ====== رسالة ====== */
+        #msg {
+            background: rgb(0, 0, 0);
+            color: white;
+            padding: 10px;
+            width: 200px;
+            margin: 10px auto;
+            display: none;
+        }
+
+        /* ====== فيسبوك ====== */
+        .fb-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body align="center" onload="checkPassword()"
+    background="https://img.youm7.com/ArticleImgs/2019/3/16/47049-%D9%85%D8%AC%D8%AF%D9%89-%D9%8A%D8%B9%D9%82%D9%88%D8%A8.jpg">
+    <button class="clear-btn" onclick="clearAttendance()">مسح الغياب</button>
+    <div id="msg"></div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "1"; // ← هنا حط باسوورد الفصل
+            const userPassword = prompt("ادخل كلمة السر للدخول:");
+
+            if (userPassword === correctPassword) {
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("كلمة السر غلط!");
+                window.location.href = "https://google.com"; // يرجّعه برا
+            }
+        }
+    </script>
+
+
+
+
+
+    <div id="content">
+
+
+        <!-- هنا جدول الغياب بتاعك -->
+
+        </table>
+    </div>
+
+
+
+    <script>
+        function resetAbsence() {
+            let now = new Date();
+
+            // لو الساعة 12 بالليل
+            if (now.getHours() === 0 && now.getMinutes() === 0) {
+                let checks = document.querySelectorAll(".absent");
+                checks.forEach(ch => ch.checked = false);
+            }
+        }
+
+        // تشغيل الفحص كل دقيقة
+        setInterval(resetAbsence, 60000);
+    </script>
+
+
+
+
+    <table border="1" align="center">
+        <caption>
+            قائمة فصل 4/1
+        </caption>
+        <thead>
+            <tr bgcolor="red">
+                <th>الرقم</th>
+                <th> الاسم
+                </th>
+                <th>الغياب
+                </th>
+                <th>هروب</th>
+
+            </tr>
+        </thead>
+        <tbody bgcolor="green" align="center">
+            <tr>
+                <td>1</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b1"></td>
+                <td><input type="checkbox" class="escape" id="d1"></td>
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+
+                </td>
+
+                <td><input type="checkbox" class="absent" id="b2"></td>
+                <td><input type="checkbox" class="escape" id="d2"></td>
+
+
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b3"></td>
+                <td><input type="checkbox" class="escape" id="d3"></td>
+            <tr>
+                <td>4</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b4"></td>
+                <td><input type="checkbox" class="escape" id="d4"></td>
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b5"></td>
+                <td><input type="checkbox" class="escape" id="d5"></td>
+
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b6"></td>
+                <td><input type="checkbox" class="escape" id="d6"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b7"></td>
+                <td><input type="checkbox" class="escape" id="d7"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b8"></td>
+                <td><input type="checkbox" class="escape" id="d8"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b9"></td>
+                <td><input type="checkbox" class="escape" id="d9"></td>
+
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b10"></td>
+                <td><input type="checkbox" class="escape" id="d10"></td>
+
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b11"></td>
+                <td><input type="checkbox" class="escape" id="d11"></td>
+
+
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b12"></td>
+                <td><input type="checkbox" class="escape" id="d12"></td>
+
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b13"></td>
+                <td><input type="checkbox" class="escape" id="d13"></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b14"></td>
+                <td><input type="checkbox" class="escape" id="d14"></td>
+
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b15"></td>
+                <td><input type="checkbox" class="escape" id="d15"></td>
+
+
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b16"></td>
+                <td><input type="checkbox" class="escape" id="d16"></td>
+
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b17"></td>
+                <td><input type="checkbox" class="escape" id="d17"></td>
+
+
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b18"></td>
+                <td><input type="checkbox" class="escape" id="d18"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b19"></td>
+                <td><input type="checkbox" class="escape" id="d19"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b20"></td>
+                <td><input type="checkbox" class="escape" id="d20"></td>
+
+
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b21"></td>
+                <td><input type="checkbox" class="escape" id="d21"></td>
+
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b22"></td>
+                <td><input type="checkbox" class="escape" id="d22"></td>
+
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b23"></td>
+                <td><input type="checkbox" class="escape" id="d23"></td>
+
+
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b24"></td>
+                <td><input type="checkbox" class="escape" id="d24"></td>
+
+
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b25"></td>
+                <td><input type="checkbox" class="escape" id="d25"></td>
+
+
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b26"></td>
+                <td><input type="checkbox" class="escape" id="d26"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b27"></td>
+                <td><input type="checkbox" class="escape" id="d27"></td>
+
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b28"></td>
+                <td><input type="checkbox" class="escape" id="d28"></td>
+
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b29"></td>
+                <td><input type="checkbox" class="escape" id="d29"></td>
+
+
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b30"></td>
+                <td><input type="checkbox" class="escape" id="d30"></td>
+
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b31"></td>
+                <td><input type="checkbox" class="escape" id="d31"></td>
+
+
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b32"></td>
+                <td><input type="checkbox" class="escape" id="d32"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b33"></td>
+                <td><input type="checkbox" class="escape" id="d33"></td>
+
+
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b34"></td>
+                <td><input type="checkbox" class="escape" id="d34"></td>
+
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b35"></td>
+                <td><input type="checkbox" class="escape" id="d35"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b36"></td>
+                <td><input type="checkbox" class="escape" id="d36"></td>
+
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b37"></td>
+                <td><input type="checkbox" class="escape" id="d37"></td>
+
+
+
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>
+
+                </td>
+                <td><input type="checkbox" class="absent" id="b38"></td>
+                <td><input type="checkbox" class="escape" id="d38"></td>
+
+
+            </tr>
+    </table>
+    </tbody>
+
+
+
+
+    <script>
+        /* حفظ */
+        document.querySelectorAll("input[type=checkbox]").forEach(box => {
+            box.addEventListener("change", () => {
+                localStorage.setItem(box.id, box.checked);
+            });
+        });
+
+        /* تحميل */
+        document.querySelectorAll("input[type=checkbox]").forEach(box => {
+            const saved = localStorage.getItem(box.id);
+            if (saved === "true") {
+                box.checked = true;
+            }
+        });
+    </script>
+    <script>
+        // حفظ كل checkbox في localStorage تلقائي
+        document.querySelectorAll("input[type=checkbox]").forEach(box => {
+            box.addEventListener("change", () => {
+                localStorage.setItem(box.id, box.checked);
+            });
+        });
+
+        // تحميل القيم عند فتح الصفحة
+        document.querySelectorAll("input[type=checkbox]").forEach(box => {
+            const saved = localStorage.getItem(box.id);
+            if (saved === "true") {
+                box.checked = true;
+            }
+        });
+
+        // مسح الغياب
+        function clearAttendance() {
+            if (confirm("هل أنت متأكد أنك تريد مسح الغياب؟")) {
+                document.querySelectorAll("input[type=checkbox]").forEach(box => {
+                    box.checked = false;
+                    localStorage.removeItem(box.id);
+                });
+
+                // اظهار الرسالة
+                const msgDiv = document.getElementById("msg");
+                msgDiv.innerText = "تم مسح الغياب ✅";
+                msgDiv.style.display = "block";
+
+                setTimeout(() => {
+                    msgDiv.style.display = "none";
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+
+</html>
