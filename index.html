@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
 <style>
 /* شاشة اللودنج */
 #loader{
@@ -128,7 +131,11 @@ window.onload = function(){
 
 
     </div>
-    
+    <script>
+ if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
 </body>
 <script>
 window.onload = function(){
